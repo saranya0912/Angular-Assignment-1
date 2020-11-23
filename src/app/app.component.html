@@ -1,6 +1,20 @@
-<div>
+<!-- <mat-slider min = "1" max = "100" step = "1" value = "1"></mat-slider> -->
+
+<!-- drop down menu -->
+<h4>Basic mat-select</h4>
+<mat-form-field appearance="fill">
+  <mat-label>Favorite food</mat-label>
+  <mat-select>
+    <mat-option *ngFor="let food of foods" [value]="food.value">
+      {{food.viewValue}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+
+<!-- <div>
   <app-input></app-input>
-</div>  
+</div>   -->
 <!-- n
 
 </div>
