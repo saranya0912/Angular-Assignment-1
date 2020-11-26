@@ -1,0 +1,6 @@
+<mat-form-field id="datePicker" appearance="outline">
+    <mat-label>Choose a date</mat-label>
+    <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="myDatePicker">
+    <mat-datepicker-toggle matSuffix [for]="myDatePicker"></mat-datepicker-toggle>
+    <mat-datepicker #myDatePicker></mat-datepicker>
+</mat-form-field>

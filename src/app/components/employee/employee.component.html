@@ -1,0 +1,64 @@
+ <section id="employee" class="p-5 text-center"> 
+
+    <form class="mb-5 mx-md-5" action="" [formGroup]="empDetails">
+        <div class="row">
+            <div class="col-lg-12 mb-4 styled-label allign-left">
+                <label for="male">Employee Name</label>
+            </div>
+            <div class="col-lg-6 col-sm-12 col-md-12 mb-4">
+                <input type="text" id="firstname" class="form-control" placeholder="First Name">
+            </div>
+            <div class="col-lg-6 col-sm-12 col-md-12 mb-4">
+                <input type="text" id="middlename" class="form-control" placeholder="Middle Name">
+            </div>
+            <div class="col-lg-6 col-sm-12 col-md-12 mb-4">
+                <input type="text" id="lastname" class="form-control" placeholder="Last Name">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 mb-4 styled-label allign-left">
+                <label for="male">Date of Birth and Gender</label>
+            </div>
+            <div class="col-lg-6 col-sm-12 col-md-12 mb-4 allign-left">
+                <app-datepicker></app-datepicker>
+            </div>
+            <div class="col-lg-6 col-sm-12 col-md-12" id="gender" style="height: 40px; text-align: left">
+                <app-gender></app-gender>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 mb-4 styled-label allign-left">
+                <label for="male">Social Security Number (Last 5 digts only)</label>
+            </div>
+            <div class="col-lg-6 col-sm-12 col-md-12 mb-4">
+                <input id="ssn" maxlength="11" [value]="formattedSSN" type="text" class="form-control" placeholder="Social Security Number" formControlName="socialsecurity" (keyup)="updateSSN($event)" />
+                <div *ngIf="(validatessn.invalid && validatessn.touched) || validatessn.dirty" class="allign-left">
+                    <small *ngIf="validatessn.errors?.pattern" class="text-danger">{{err.ssn}}</small>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 mb-4 styled-label allign-left">
+                <label for="male">Employment</label>
+            </div>
+            <div class="col-lg-6 col-sm-12 col-md-12 mb-4">
+                <input type="text" id="employment" class="form-control" placeholder="Occupation">
+            </div>
+            <div class="col-lg-6 col-sm-12 col-md-12 mb-4">
+                <input type="text" id="avgweeklywage" [value]="formattedAVW" class="form-control" placeholder="Average Weekly Wage $" formControlName="avgweeklywage" (blur)="updateAVW($event)">
+                <div *ngIf="(validateavw.invalid && validateavw.touched) || validateavw.dirty" class="allign-left">
+                    <small *ngIf="validateavw.errors?.pattern" class="text-danger">{{err.avw}}</small>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-sm-12 col-md-12 mb-4 styled-label allign-left">
+                <label for="male">Was your employment in Oklahoma?</label>
+            </div>
+            <div id="oklahomaEmp" class="col-lg-6 col-sm-12 col-md-12 mb-4 allign-left">
+                <app-radio></app-radio>
+            </div>
+        </div>
+    </form>
+
+</section> 

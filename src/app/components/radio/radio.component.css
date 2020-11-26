@@ -1,0 +1,13 @@
+.mat-radio-button~.mat-radio-button {
+    margin-left: 16px;
+}
+
+
+/* ::ng-deep #oklahomaEmp .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+    border-color: rgba(0, 0, 0, .54);
+}
+
+::ng-deep #oklahomaEmp .mat-radio-button.mat-accent .mat-radio-inner-circle {
+    background-color: rgba(12, 12, 12, 0.54);
+    ;
+} */

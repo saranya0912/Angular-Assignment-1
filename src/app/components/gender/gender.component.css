@@ -1,0 +1,20 @@
+::ng-deep #gender .mat-form-field-infix {
+    border-top: 1px;
+}
+
+::ng-deep #gender .mat-form-field-flex {
+    height: inherit;
+}
+
+::ng-deep #gender .mat-form-field-wrapper {
+    height: 43px;
+    margin-top: 0;
+}
+
+::ng-deep #gender .mat-form-field-outline {
+    color: #ced4da;
+}
+
+::ng-deep #gender .mat-form-field {
+    width: 100%;
+}

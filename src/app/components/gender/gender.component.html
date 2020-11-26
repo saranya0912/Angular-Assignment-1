@@ -1,0 +1,8 @@
+<mat-form-field appearance="outline">
+    <mat-label>Gender</mat-label>
+    <mat-select>
+        <mat-option *ngFor="let gender of genders" [value]="gender.value">
+            {{gender.viewValue}}
+        </mat-option>
+    </mat-select>
+</mat-form-field>

@@ -1,0 +1,86 @@
+<section id="contact" class="p-5 text-center">
+    <form class="mb-5 mx-md-5" action="" [formGroup]="userDetails">
+        <div class="row">
+            <div class="col-md-12 mb-4 styled-label allign-left">
+                <label for="contactdetails">Mailing Details</label>
+            </div>
+            <div class="col-md-12 mb-4">
+                <input type="text" id="streetaddress" class="form-control" placeholder="Street Address">
+            </div>
+            <div class="col-md-6 mb-4">
+                <input type="text" id="suite" class="form-control" placeholder="Suite">
+            </div>
+            <div class="col-md-6 mb-4">
+                <input type="text" id="city" class="form-control" placeholder="City">
+            </div>
+            <div class="col-md-6 mb-4">
+                <input type="text" id="state" class="form-control" placeholder="State">
+            </div>
+            <div class="col-md-6 mb-4">
+                <input type="text" id="zip" maxlength="5" class="form-control" placeholder="Zip Code" formControlName="zipcode" [class.is-invalid]="validateZipcode.invalid && validateZipcode.touched" (blur)="handleZipcodeChange($event)">
+                <div *ngIf="(validateZipcode.invalid && validateZipcode.touched) || validateZipcode.dirty" class="allign-left">
+                    <small *ngIf="validateZipcode.errors?.pattern" class="text-danger">{{err.zipcode}}</small>
+                </div>
+            </div>
+            <div class="col-md-6 mb-4 form-group">
+                <input id="email" [class.is-invalid]="validateEmail.invalid && validateEmail.touched" type="email" [value]="details.email" class="form-control" placeholder="Email" formControlName="email" (keyup)="updateEmailValue($event)" />
+                <div *ngIf=" (validateEmail.invalid && validateEmail.touched) || validateEmail.dirty" class="allign-left">
+                    <small *ngIf="validateEmail.errors?.pattern" class="text-danger">{{err.email}}</small>
+                </div>
+            </div>
+            <div class="col-md-6 mb-4">
+                <input type="string" id="phoneNumber" maxlength="10" class="form-control" [value]="formattedPhoneNumber" (blur)="formatPhoneNumber($event)" placeholder="Phone Number" formControlName="phone">
+                <div *ngIf="(validatePhone.invalid && validatePhone.touched) || validatePhone.dirty" class="allign-left">
+                    <small *ngIf="validatePhone.errors?.pattern" class="text-danger">{{err.phone}}</small>
+                </div>
+            </div>
+            <div class="col-md-6 mb-4 form-group">
+                <input id="verifyemail" [class.is-invalid]="validateVerifyEmail.invalid && validateVerifyEmail.touched" type="email" placeholder="Verify Email" class="form-control" formControlName="verifyEmail" (blur)="handleVerifyEmail($event)" />
+                <div *ngIf="(validateVerifyEmail.invalid && validateVerifyEmail.touched) || validateVerifyEmail.dirty" class="allign-left">
+                    <small *ngIf="validateVerifyEmail.errors?.pattern" class="text-danger">{{err.verifyEmail}}</small>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <mat-checkbox class="example-margin" [checked]="isSameShippingAddress" color="primary" (change)="toggle()">Shipping Address same as Contact address?</mat-checkbox>
+            </div>
+        </div>
+        <div class="row" *ngIf="!isSameShippingAddress">
+            <div class="col-md-12 mb-4 styled-label allign-left">
+                <label for="shippingdetails">Shipping Details</label>
+            </div>
+            <div class="col-md-12 mb-4">
+                <input type="text" id="shippingstreetaddress" class="form-control" placeholder="Street Address">
+            </div>
+            <div class="col-md-6 mb-4">
+                <input type="text" id="shippingsuite" class="form-control" placeholder="Suite">
+            </div>
+            <div class="col-md-6 mb-4">
+                <input type="text" id="shippingcity" class="form-control" placeholder="Cit ">
+            </div>
+            <div class="col-md-6 mb-4">
+                <input type="text" id="shippingstate" class="form-control" placeholder="State">
+            </div>
+            <div class="col-md-6 mb-4">
+                <input type="number" id="shippingzip" maxlength="5" pattern="^[0-9]{5}$" class="form-control" placeholder="Zip Code">
+            </div>
+            <div class="col-md-6 mb-4">
+                <input id="shipemail" [class.is-invalid]="validateShipEmail.invalid && validateShipEmail.touched" type="email" class="form-control" placeholder="Shipping Email" formControlName="shipEmail" />
+
+                <div *ngIf="(validateShipEmail.invalid && validateShipEmail.touched) || validateShipEmail.dirty" class="allign-left">
+                    <small *ngIf="validateShipEmail.errors?.pattern" class="text-danger">{{err.shipEmail}}</small>
+                </div>
+            </div>
+            <div class="col-md-6 mb-4">
+                <input type="number" id="shippingphone" class="form-control" placeholder="Phone Number">
+            </div>
+            <div class="col-md-6 mb-4">
+                <input id="verifyshipemail" [class.is-invalid]="validateVerifyShipEmail.invalid && validateVerifyShipEmail.touched" type="email" placeholder="Verify shipping Email" class="form-control" formControlName="verifyShipEmail" />
+                <div *ngIf="(validateVerifyShipEmail.invalid && validateVerifyShipEmail.touched) || validateVerifyShipEmail.dirty" class="allign-left">
+                    <small *ngIf="validateVerifyShipEmail.errors?.pattern" class="text-danger">{{err.verifyShipEmail}}</small>
+                </div>
+            </div>
+        </div>
+    </form>
+</section>
